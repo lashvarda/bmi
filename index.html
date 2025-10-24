@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>BMI Calculator</title>
+</head>
+<body>
+    <center>
+        <div class="form">
+            <h1>BMI Calculator</h1>
+
+            <label for="weight">Weight (kg):</label>
+            <input type="number" id="weight" placeholder="Enter your weight"><br><br>
+
+            <label for="height">Height (cm):</label>
+            <input type="number" id="height" placeholder="Enter your height"><br><br>
+
+            <button id="calculateBtn">Calculate BMI</button>
+
+            <h2 id="result"></h2>
+            <h2 id="cat"></h2>
+        </div>
+    </center>
+    <script>
+
+        const calculateBtn = document.getElementById("calculateBtn");
+        const result = document.getElementById("result");
+        const cat = document.getElementById("cat");
+
+        calculateBtn.addEventListener("click", () => {
+            const weight = parseFloat(document.getElementById("weight").value);
+            const heightCm = parseFloat(document.getElementById("height").value);
+
+            if (!weight || !heightCm){
+                result.textContent = "Please enter valid numbers!";
+                return;
+            }
+
+            const heightM = heightCm / 100;
+            const bmi = weight / (heightM * heightM);
+            result.textContent = `Your BMI is ${bmi.toFixed(2)}`;
+
+                if (bmi.toFixed(2) < 18.5){
+                cat.textContent = "You are in underweight category";
+            }
+            else if (bmi.toFixed(2) >= 18.5 && bmi.toFixed(2) < 25){
+                cat.textContent = "You are in normal weight category"
+            }
+            else if (bmi.toFixed(2) >= 25 && bmi.toFixed(2) < 30){
+                cat.textContent = "You are in overweight category"
+            }
+            else if (bmi.toFixed(2) >= 30){
+                cat.textContent = "You are in obese category"
+            }
+            })
+
+
+
+    </script>
+
+
+
+</body>
+</html>
