@@ -37,6 +37,9 @@
                 result.textContent = "Please enter valid numbers!";
                 return;
             }
+            else if (weight <= 0 || height <= 0){
+                result.textContent = "Please enter valid numbers!";
+            }
 
             const heightM = heightCm / 100;
             const bmi = weight / (heightM * heightM);
