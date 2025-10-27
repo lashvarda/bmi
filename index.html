@@ -31,9 +31,7 @@
 
         calculateBtn.addEventListener("click", () => {
             const weight = parseFloat(document.getElementById("weight").value);
-            const heightCm = parseFloat(document.getElementById            else if (weight <= 0 || height <= 0){
-                result.textContent = "Please enter valid numbers!";
-            }("height").value);
+            const heightCm = parseFloat(document.getElementById("height").value);
 
             if (!weight || !heightCm){
                 result.textContent = "Please enter valid numbers!";
@@ -48,7 +46,7 @@
             const bmi = weight / (heightM * heightM);
             result.textContent = `Your BMI is ${bmi.toFixed(2)}`;
 
-                if (bmi.toFixed(2) < 18.5){
+            if (bmi.toFixed(2) < 18.5){
                 cat.textContent = "You are in underweight category";
             }
             else if (bmi.toFixed(2) >= 18.5 && bmi.toFixed(2) < 25){
