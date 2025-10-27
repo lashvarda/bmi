@@ -31,7 +31,9 @@
 
         calculateBtn.addEventListener("click", () => {
             const weight = parseFloat(document.getElementById("weight").value);
-            const heightCm = parseFloat(document.getElementById("height").value);
+            const heightCm = parseFloat(document.getElementById            else if (weight <= 0 || height <= 0){
+                result.textContent = "Please enter valid numbers!";
+            }("height").value);
 
             if (!weight || !heightCm){
                 result.textContent = "Please enter valid numbers!";
@@ -39,6 +41,7 @@
             }
             else if (weight <= 0 || height <= 0){
                 result.textContent = "Please enter valid numbers!";
+                return;
             }
 
             const heightM = heightCm / 100;
